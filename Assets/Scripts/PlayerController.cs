@@ -30,10 +30,24 @@ public class PlayerController : MonoBehaviour
 		currentState = State.Idle;
 	}
 
+	void OnCollisionEnter2D  (Collision2D other) {
+		if (other.gameObject.CompareTag ("Obstacle")) {
+			other.gameObject.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
+		}
+	}
+
+	void OnCollisionExit2D (Collision2D other) {
+		if (other.gameObject.CompareTag ("Obstacle")) {
+			other.gameObject.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
+		}
+	}
+
+
 	void Update ()
 	{
 
 		transform.Translate (speed * 0.01f * (Vector2.right * Input.GetAxis ("Horizontal") + Vector2.up * Input.GetAxis ("Vertical")));
+
 
 		switch (currentState) {
 
