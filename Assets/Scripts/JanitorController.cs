@@ -1,16 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
 
 public class JanitorController : MonoBehaviour {
 
-	// Use this for initialization
+	AIDestinationSetter destSetter;
+	AILerp aiLerp;
+
 	void Start () {
-		
+		destSetter = GetComponent<AIDestinationSetter> ();
+		aiLerp = GetComponent<AILerp> ();
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
-		
+
+		AstarPath.active.Scan (); // Recalculate the graph
 	}
+
+	void OnTargetReached () {
+		print (1);
+	}
+
 }
