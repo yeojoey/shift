@@ -22,13 +22,17 @@ public class PlayerController : MonoBehaviour
 	public float transformTime = 0.5f;
 
 	private BoxCollider2D collider;
+    private SpriteRenderer spriteR;
+    private Sprite[] sprites;
 
-	void Start ()
+    void Start ()
 	{
 		isGhost = false;
 		collider = GetComponent<BoxCollider2D> ();
 		currentState = State.Idle;
-	}
+        spriteR = gameObject.GetComponent<SpriteRenderer>();
+        sprites = Resources.LoadAll<Sprite>("doggo");
+    }
 
 	void OnCollisionEnter2D  (Collision2D other) {
 		if (other.gameObject.CompareTag ("Obstacle")) {
@@ -81,7 +85,8 @@ public class PlayerController : MonoBehaviour
 		isGhost = true;
 		collider.enabled = false;
 		currentState = State.Idle;
-	}
+        spriteR.sprite = sprites[1];
+    }
 
 	private IEnumerator GoReal ()
 	{
@@ -94,6 +99,8 @@ public class PlayerController : MonoBehaviour
 		isGhost = false;
 		collider.enabled = true;
 		currentState = State.Idle;
-	}
+        spriteR.sprite = sprites[20];
+
+    }
 
 }
