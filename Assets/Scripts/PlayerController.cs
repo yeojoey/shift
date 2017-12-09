@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
     }
 
 	void OnCollisionEnter2D  (Collision2D other) {
-		if (other.gameObject.CompareTag ("Obstacle")) {
+		if (other.gameObject.CompareTag ("Obstacle") && currentState != State.Pushing) {
 			currentState = State.Pushing;
 			other.gameObject.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 		}
@@ -52,6 +52,8 @@ public class PlayerController : MonoBehaviour
 			other.gameObject.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
 			currentState = State.Idle;
 		}
+
+		AstarPath.active.Scan ();
 	}
 
 
@@ -69,15 +71,16 @@ public class PlayerController : MonoBehaviour
 
 			direction = Vector2.right * Input.GetAxis ("Horizontal") + Vector2.up * Input.GetAxis ("Vertical");
 
-			if (direction.x > 0) {
-				currentState = State.WalkingRight;
-			} else if (direction.magnitude < idleThreshold) {
+			if (direction.magnitude < idleThreshold) {
 				currentState = State.Idle;
+			} else if (direction.x > 0) {
+				currentState = State.WalkingRight;
 			} else {
 				currentState = State.WalkingLeft;
 			}
 
 			transform.Translate (speed * 0.01f * direction);
+
 			if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.RightShift)) {
 				if (!isGhost) {
 					StartCoroutine (GoGhost ());
@@ -85,6 +88,7 @@ public class PlayerController : MonoBehaviour
 					StartCoroutine (GoReal ());
 				}
 			}
+
 			break;
 
 		case State.Pushing:

@@ -5,12 +5,17 @@ using Pathfinding;
 
 public class JanitorController : AILerp {
 
+	public enum State {
+		Idle = 0,
+		WalkingRight,
+		WalkingLeft,
+		DetectedPlayer
+	}
+
 	AIDestinationSetter destSetter;
-	AILerp aiLerp;
 
 	void Start () {
 		destSetter = GetComponent<AIDestinationSetter> ();
-		aiLerp = GetComponent<AILerp> ();
 	}
 
 	void OnTargetReached () {
@@ -19,7 +24,6 @@ public class JanitorController : AILerp {
 
 	void Update () {
 
-		AstarPath.active.Scan (); // Recalculate the graph
 	}
 
 }
