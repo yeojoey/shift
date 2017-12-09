@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class JanitorController : MonoBehaviour {
+public class JanitorController : AILerp {
 
 	AIDestinationSetter destSetter;
 	AILerp aiLerp;
@@ -11,6 +11,10 @@ public class JanitorController : MonoBehaviour {
 	void Start () {
 		destSetter = GetComponent<AIDestinationSetter> ();
 		aiLerp = GetComponent<AILerp> ();
+	}
+
+	void OnTargetReached () {
+		print (1);
 	}
 
 	void Update () {

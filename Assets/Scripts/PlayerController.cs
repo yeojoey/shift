@@ -7,12 +7,12 @@ public class PlayerController : MonoBehaviour
 
 	public enum State
 	{
-		Idle,
-		Walking_Right,
-		Walking_Left,
-		Going_Ghost,
-		Going_Real
-
+		Idle = 0,
+		WalkingRight = 1,
+		WalkingLeft = 2,
+		GoingGhost = 3,
+		GoingReal = 4,
+		Pushing = 5
 	}
 
 
@@ -20,22 +20,29 @@ public class PlayerController : MonoBehaviour
 	public float speed = 5f;
 	public bool isGhost;
 	public float transformTime = 0.5f;
+	public float idleThreshold = 0.1f;
 
-	private BoxCollider2D collider;
+
+	private Collider2D collider;
     private SpriteRenderer spriteR;
     private Sprite[] sprites;
+	private Animator animator;
+
+
 
     void Start ()
 	{
 		isGhost = false;
-		collider = GetComponent<BoxCollider2D> ();
+		collider = GetComponent<Collider2D> ();
 		currentState = State.Idle;
+		animator = GetComponent<Animator> ();
         spriteR = gameObject.GetComponent<SpriteRenderer>();
         sprites = Resources.LoadAll<Sprite>("doggo");
     }
 
 	void OnCollisionEnter2D  (Collision2D other) {
 		if (other.gameObject.CompareTag ("Obstacle")) {
+			currentState = State.Pushing;
 			other.gameObject.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Dynamic;
 		}
 	}
@@ -43,6 +50,7 @@ public class PlayerController : MonoBehaviour
 	void OnCollisionExit2D (Collision2D other) {
 		if (other.gameObject.CompareTag ("Obstacle")) {
 			other.gameObject.GetComponent<Rigidbody2D> ().bodyType = RigidbodyType2D.Static;
+			currentState = State.Idle;
 		}
 	}
 
@@ -50,14 +58,26 @@ public class PlayerController : MonoBehaviour
 	void Update ()
 	{
 
-		transform.Translate (speed * 0.01f * (Vector2.right * Input.GetAxis ("Horizontal") + Vector2.up * Input.GetAxis ("Vertical")));
-
+		Vector2 direction;
 
 		switch (currentState) {
 
 		case State.Idle:
-		case State.Walking_Left:
-		case State.Walking_Right:
+		case State.WalkingLeft:
+		case State.WalkingRight:
+
+
+			direction = Vector2.right * Input.GetAxis ("Horizontal") + Vector2.up * Input.GetAxis ("Vertical");
+
+			if (direction.x > 0) {
+				currentState = State.WalkingRight;
+			} else if (direction.magnitude < idleThreshold) {
+				currentState = State.Idle;
+			} else {
+				currentState = State.WalkingLeft;
+			}
+
+			transform.Translate (speed * 0.01f * direction);
 			if (Input.GetKeyDown (KeyCode.LeftShift) || Input.GetKeyDown (KeyCode.RightShift)) {
 				if (!isGhost) {
 					StartCoroutine (GoGhost ());
@@ -67,16 +87,28 @@ public class PlayerController : MonoBehaviour
 			}
 			break;
 
+		case State.Pushing:
+			direction = Vector2.right * Input.GetAxis ("Horizontal") + Vector2.up * Input.GetAxis ("Vertical");
+			transform.Translate (speed * 0.01f * direction);
+
+			if (direction.magnitude < idleThreshold) {
+				currentState = State.Idle;
+			}
+
+			break;
+
 		default:
 			break;
 
 		}
 
+		UpdateAnimator ();
+
 	}
 
 	private IEnumerator GoGhost ()
 	{
-		currentState = State.Going_Ghost;
+		currentState = State.GoingGhost;
 		float elapsedTime = 0f;
 		while (elapsedTime < transformTime) {
 			elapsedTime += Time.unscaledDeltaTime;
@@ -85,12 +117,11 @@ public class PlayerController : MonoBehaviour
 		isGhost = true;
 		collider.enabled = false;
 		currentState = State.Idle;
-        spriteR.sprite = sprites[1];
     }
 
 	private IEnumerator GoReal ()
 	{
-		currentState = State.Going_Real;
+		currentState = State.GoingReal;
 		float elapsedTime = 0f;
 		while (elapsedTime < transformTime) {
 			elapsedTime += Time.unscaledDeltaTime;
@@ -99,8 +130,12 @@ public class PlayerController : MonoBehaviour
 		isGhost = false;
 		collider.enabled = true;
 		currentState = State.Idle;
-        spriteR.sprite = sprites[20];
 
     }
+
+	private void UpdateAnimator () {
+		animator.SetBool ("isGhost", isGhost);
+		animator.SetInteger ("currentState", (int)currentState);
+	}
 
 }
