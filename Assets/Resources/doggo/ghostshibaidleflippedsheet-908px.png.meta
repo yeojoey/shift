@@ -1,24 +1,21 @@
 fileFormatVersion: 2
-guid: 6695925e49a3f8b4b95ca6ee1e9029c0
-timeCreated: 1512759425
+guid: 5e429f94931f01a439d1ead0fcf41144
+timeCreated: 1512764773
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: shibaidle_0
-    21300002: shibaidle_1
-    21300004: shibaidle_2
-    21300006: shibaidle_3
-    21300008: shibaidle_4
-    21300010: shibaidle_5
-    21300012: shibaidle_6
-    21300014: shibaidle_7
-    21300016: shibaidle_8
-    21300018: shibaidle_9
-    21300020: shibaidle_10
-    21300022: shibaidle_11
-    21300024: shibaidle_12
-    21300026: shibaidle_13
-    21300028: shibaidle_14
+    21300000: ghostshibaidleflippedsheet-908px_0
+    21300002: ghostshibaidleflippedsheet-908px_1
+    21300004: ghostshibaidleflippedsheet-908px_2
+    21300006: ghostshibaidleflippedsheet-908px_3
+    21300008: ghostshibaidleflippedsheet-908px_4
+    21300010: ghostshibaidleflippedsheet-908px_5
+    21300012: ghostshibaidleflippedsheet-908px_6
+    21300014: ghostshibaidleflippedsheet-908px_7
+    21300016: ghostshibaidleflippedsheet-908px_8
+    21300018: ghostshibaidleflippedsheet-908px_9
+    21300020: ghostshibaidleflippedsheet-908px_10
+    21300022: ghostshibaidleflippedsheet-908px_11
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -89,7 +86,25 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -102,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shibaidle_0
+      name: ghostshibaidleflippedsheet-908px_0
       rect:
         serializedVersion: 2
-        x: 144
-        y: 3479
-        width: 632
-        height: 578
+        x: 487
+        y: 3191
+        width: 859
+        height: 740
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -116,13 +131,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_1
+      name: ghostshibaidleflippedsheet-908px_1
       rect:
         serializedVersion: 2
-        x: 1045
-        y: 3480
-        width: 614
-        height: 569
+        x: 1440
+        y: 3191
+        width: 816
+        height: 793
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,13 +145,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_2
+      name: ghostshibaidleflippedsheet-908px_2
       rect:
         serializedVersion: 2
-        x: 1917
-        y: 3480
-        width: 628
-        height: 561
+        x: 2365
+        y: 3191
+        width: 782
+        height: 850
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,13 +159,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_3
+      name: ghostshibaidleflippedsheet-908px_3
       rect:
         serializedVersion: 2
-        x: 2816
-        y: 3480
-        width: 615
-        height: 569
+        x: 3272
+        y: 3191
+        width: 785
+        height: 905
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,13 +173,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_4
+      name: ghostshibaidleflippedsheet-908px_4
       rect:
         serializedVersion: 2
-        x: 143
-        y: 2733
-        width: 630
-        height: 579
+        x: 549
+        y: 2187
+        width: 782
+        height: 850
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,13 +187,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_5
+      name: ghostshibaidleflippedsheet-908px_5
       rect:
         serializedVersion: 2
-        x: 1045
-        y: 2733
-        width: 614
-        height: 571
+        x: 1456
+        y: 2189
+        width: 785
+        height: 907
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,13 +201,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_6
+      name: ghostshibaidleflippedsheet-908px_6
       rect:
         serializedVersion: 2
-        x: 1917
-        y: 2733
-        width: 628
-        height: 563
+        x: 2365
+        y: 2187
+        width: 782
+        height: 850
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,13 +215,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_7
+      name: ghostshibaidleflippedsheet-908px_7
       rect:
         serializedVersion: 2
-        x: 2815
-        y: 2733
-        width: 616
-        height: 571
+        x: 3256
+        y: 2184
+        width: 816
+        height: 795
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,13 +229,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_8
+      name: ghostshibaidleflippedsheet-908px_8
       rect:
         serializedVersion: 2
-        x: 144
-        y: 1983
-        width: 632
-        height: 578
+        x: 549
+        y: 1184
+        width: 782
+        height: 851
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -228,13 +243,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_9
+      name: ghostshibaidleflippedsheet-908px_9
       rect:
         serializedVersion: 2
-        x: 1045
-        y: 1984
-        width: 614
-        height: 569
+        x: 1440
+        y: 1185
+        width: 816
+        height: 790
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,13 +257,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_10
+      name: ghostshibaidleflippedsheet-908px_10
       rect:
         serializedVersion: 2
-        x: 1917
-        y: 1984
-        width: 628
-        height: 561
+        x: 2303
+        y: 1184
+        width: 859
+        height: 745
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,55 +271,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: shibaidle_11
+      name: ghostshibaidleflippedsheet-908px_11
       rect:
         serializedVersion: 2
-        x: 2816
-        y: 1984
-        width: 615
-        height: 569
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: shibaidle_12
-      rect:
-        serializedVersion: 2
-        x: 143
-        y: 1237
-        width: 630
-        height: 579
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: shibaidle_13
-      rect:
-        serializedVersion: 2
-        x: 1045
-        y: 1237
-        width: 614
-        height: 571
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: shibaidle_14
-      rect:
-        serializedVersion: 2
-        x: 1917
-        y: 1237
-        width: 628
-        height: 563
+        x: 3256
+        y: 1185
+        width: 816
+        height: 790
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
