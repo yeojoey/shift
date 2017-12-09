@@ -18,8 +18,4 @@ public class JanitorController : MonoBehaviour {
 		AstarPath.active.Scan (); // Recalculate the graph
 	}
 
-	void OnTargetReached () {
-		print (1);
-	}
-
 }
